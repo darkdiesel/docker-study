@@ -11,7 +11,13 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - '3307:3306'
-#    volumes:
+    volumes:
+      - type: volume
+        source: dumps
+        target: /dumps
+        # nocopy has no equivalent in the short syntax:
+        volume:
+          nocopy: true
 #      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
   redis:
     image: redis:latest
