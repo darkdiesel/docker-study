@@ -1,0 +1,4 @@
+services:
+  zabbix:
+    image: zabbix/zabbix-web-nginx-mysql
+    container_name: zabbix.tests
